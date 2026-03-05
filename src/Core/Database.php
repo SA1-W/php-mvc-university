@@ -9,6 +9,8 @@ class Database
     protected $password;
     protected $database;
 
+    protected $conn;
+
 
     public function __construct($servername, $username, $password, $database)
     {
@@ -23,11 +25,16 @@ class Database
 
     public function connect()
     {
+
+        if ($this->conn) {
+            return $this->conn;
+        }
+
         try {
-            $conn = new PDO("mysql:host=$this->servername;dbname=$this->database", $this->username, $this->password);
+            $this->conn = new PDO("mysql:host=$this->servername;dbname=$this->database;charset=utf8mb4", $this->username, $this->password);
             // set the PDO error mode to exception
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            return $conn;
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $this->conn;
         } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
