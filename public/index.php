@@ -1,18 +1,11 @@
 <?php
 
 session_start();
-// define('BASE_URL', '/oop_project_2/public');
 
 const BASE_URL = '/oop_project_2/public';
 
-
 require_once __DIR__ . '/../src/Controllers/AuthController.php';
 require_once __DIR__ . '/../src/Controllers/StudentController.php';
-require_once __DIR__ . '/../src/Core/Auth.php';
-require_once __DIR__ . '/../src/Core/Access.php';
-require_once __DIR__ . '/../src/Core/View.php';
-require_once __DIR__ . '/../src/Models/Student.php';
-
 
 $action = $_GET['action'] ?? 'login_form';
 

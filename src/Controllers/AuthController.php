@@ -1,10 +1,11 @@
 <?php
 
+require_once __DIR__ . '/../Core/Auth.php';
+
 class AuthController
 {
     public function showLoginForm()
     {
-        $cssPath = '/views/auth/sign-in.css';
         require_once __DIR__ .  '/../../views/auth/login.php';
     }
 

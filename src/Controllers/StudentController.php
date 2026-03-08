@@ -1,7 +1,8 @@
 <?php
 
-
-
+require_once __DIR__ . '/../Models/Student.php';
+require_once __DIR__ . '/../Core/View.php';
+require_once __DIR__ . '/../Core/Access.php';
 
 class StudentController
 {
